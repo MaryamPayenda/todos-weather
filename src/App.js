@@ -22,7 +22,7 @@ function App() {
   const [list, setList] = useState(getLocalStorage());
   const [idEditing, setIdEditing] = useState(false);
   const [editID, setEditID] = useState(null);
-  const [alet, setAlet] = useState({ show: false, msg: "", type: "" });
+  const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
 
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(list));
@@ -54,7 +54,7 @@ function App() {
   };
 
   const showAlert = (show = false, type = "", msg = "") => {
-    setAlet(show, type, msg);
+    setAlert(show, type, msg);
   };
 
   const removeItem = (id) => {
@@ -79,14 +79,11 @@ function App() {
       <div className="container">
         <section className="section-center">
           <form onSubmit={handleSubmit}>
-            {alert.show && (
-              <Alert {...alert} removeAlert={showAlert} list={list} />
-            )}
             <h3>TODO LIST</h3>
             <div className="form-design">
               <input
                 type="text"
-                placeholder="coding"
+                placeholder="ex: Coding"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
               />
