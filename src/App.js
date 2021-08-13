@@ -1,9 +1,15 @@
-import React from 'react';
-import weather from './components/weather';
-import todo from './components/todo';
+import React from "react";
+import Weather from "./components/weather";
+//import todo from "./components/todo";
 
 function App() {
-  return <div className="App"></div>;
+
+  return (
+    <div className="App">
+      <Weather  />
+     
+    </div>
+  );
 }
 
 export default App;
