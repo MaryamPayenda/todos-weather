@@ -1,4 +1,12 @@
-form {
+  .app-wrap {
+    display: flex;
+    flex-direction: column;
+   
+    min-height: 80vh;
+     background: rgb(121, 54, 172);
+     width:30vw;
+  }
+  form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,14 +37,7 @@ form {
   header input:focus {
     background-color: rgba(255, 255, 255, 0.6);
   }
-  .app-wrap {
-    display: flex;
-    flex-direction: column;
-   
-    min-height: 80vh;
-     background: rgb(121, 54, 172);
-     width:40vw;
-  }
+
   //main 
   main {
     flex: 1 1 100%;

@@ -1,25 +1,112 @@
 @import "./weather";
-* {
-    margin: 0;
-    padding: 0;
-  
-    box-sizing: border-box;
-  }
-  
+
   html {
     font-size: 10px;
   }
-  body {
-    font-size: 1.6rem;
-    font-family: "montserrat", sans-serif;
-   // background-image: url("../../img/default.jpg");
-    /* filter: grayscale(100%); */
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    position: relative;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  .section-center {
+    border: 1px green solid;
+
+    padding: 1rem;
+    height: 60vh;
+    width: 23vw;
+    form {
+      h3 {
+        text-align: center;
+        font-weight: bold;
+        padding: 10px;
+      }
+      .form-design {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        input {
+          border: 1px solid gray;
+          border-radius: 5px;
+          height: 2rem;
+          width: 20rem;
+          &::placeholder {
+            padding-left: 8px;
+          }
+        }
+
+        .btn {
+          height: 2rem;
+          width: 5rem;
+          font-weight: bold;
+          border: none;
+          background-color: rgb(231, 224, 224);
+          border-radius: 5px;
+        }
+      }
+    }
+    .app {
+      margin: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-direction: column;
+    }
+    div {
+      .clearList {
+        height: 2rem;
+        width: 5rem;
+        font-weight: bold;
+        border: none;
+        background-color: rgb(231, 224, 224);
+        border-radius: 5px;
+        //   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        //   transition: all 0, 3s linear;
+      }
+    }
+  }
+}
+
+.listDesign {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.22rem;
+  li {
     display: flex;
     align-items: center;
-    height:100vh;
-    width:100vw;
+    justify-content: space-between;
+    word-break: break-all;
+    margin-left: 15px;
+    margin-right: 15px;
+
+    width: 25.5rem;
+    .editAndDelete {
+      display: flex;
+      align-items: center;
+      width: 4rem;
+      justify-content: space-between;
+
+      .btn-edit {
+        color: blue;
+        height: 1.7rem;
+        width: 1.7rem;
+      }
+      .btn-delete {
+        color: red;
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+      .btn {
+        border: none;
+      }
+    }
   }
+}
