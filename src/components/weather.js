@@ -1,12 +1,9 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import keys from "../config"
+import keys from "../config";
 const Weather = () => {
-  const baseUrl= "https://api.openweathermap.org/data/2.5/";
-    
-    
-  
+  const baseUrl = "https://api.openweathermap.org/data/2.5/";
 
   const [userInput, setUserInput] = useState("leipzig");
   const [weatherData, setWeatherData] = useState({});
@@ -25,13 +22,11 @@ const Weather = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     getWeather(userInput);
-   
-  }; 
+  };
 
-     //find the direction
- 
-      
-    /*  
+  //find the direction
+
+  /*  
           const windDir = weatherData.wind.deg;
            const windD = [
         { direction: "N", start: 310, end: 360 },
@@ -46,20 +41,12 @@ const Weather = () => {
         (dir) => dir.start <= windDir && dir.end >= windDir
       );
       */
-    
-    
-   useEffect(()=>{
- 
- 
-      getWeather(userInput);
-    
-      
-   },[])
 
+  useEffect(() => {
+    getWeather(userInput);
+  }, []);
 
-      
- 
-      // the time
+  // the time
   const year = new Date();
   const getFullYear = year.getFullYear();
   const getDayName = () => {
@@ -71,11 +58,10 @@ const Weather = () => {
   const getMonthName = () => {
     return year.toLocaleDateString("en-US", { month: "long" });
   };
-  
-  
+
   return (
-    <div  className="app-wrap">
-      <header >
+    <div className="app-wrap">
+      <header>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -93,7 +79,9 @@ const Weather = () => {
               {" "}
               {weatherData.name}, {weatherData.sys.country}
             </div>
-            <div class="date">{getDayName()} {getTime()} {getMonthName()} {getFullYear}</div>
+            <div class="date">
+              {getDayName()} {getTime()} {getMonthName()} {getFullYear}
+            </div>
           </section>
           <div class="current">
             <div class="temp">
@@ -103,7 +91,10 @@ const Weather = () => {
               <span>°</span>
             </div>
             <div class="feelsContainer">
-              Feels like <span class="feels">{weatherData.main.feels_like.toFixed()}</span>
+              Feels like{" "}
+              <span class="feels">
+                {Math.floor(weatherData.main.feels_like)}
+              </span>
               <span>°</span>
             </div>
 
@@ -114,17 +105,24 @@ const Weather = () => {
             />
 
             <div class="weather">{weatherData.weather[0].main}</div>
-            <div class="hi-low">{weatherData.main.temp_min.toFixed()} / {weatherData.main.temp_max.toFixed()}</div>
+            <div class="hi-low">
+              {weatherData.main.temp_min.toFixed()} /{" "}
+              {weatherData.main.temp_max.toFixed()}
+            </div>
             <div class="wind">
               <i class="fas fa-wind"></i>
               <div>
                 Wind direction: <span class="windDeg">N</span>
               </div>
               <div>
-                Speed: <span class="windSpeed">{weatherData.wind.speed}km/h</span>
+                Speed:{" "}
+                <span class="windSpeed">{weatherData.wind.speed}km/h</span>
               </div>
               <div>
-                Max-gust: <span class="windGust">{weatherData.wind.gust.toFixed()}km/h</span>
+                Max-gust:{" "}
+                <span class="windGust">
+                  {Math.floor(weatherData.wind.gust)}km/h
+                </span>
               </div>
             </div>
             <div class="hum-img">
